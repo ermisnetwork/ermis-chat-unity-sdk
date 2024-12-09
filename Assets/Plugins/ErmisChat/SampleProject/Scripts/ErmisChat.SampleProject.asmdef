@@ -1,0 +1,25 @@
+{
+    "name": "ErmisChat.SampleProject",
+    "rootNamespace": "",
+    "references": [
+        "Ermis.Core",
+        "Unity.TextMeshPro",
+        "Ermis.Libs",
+        "StandaloneFileBrowser"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "Select...",
+            "expression": "",
+            "define": ""
+        }
+    ],
+    "noEngineReferences": false
+}

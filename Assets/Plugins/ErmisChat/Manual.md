@@ -1,20 +1,21 @@
+
 ##  Table of contents
 
-1. [Introduction](https://docs.ermis.network/JavaScript/doc#introduction)
-2. [Requirements](https://docs.ermis.network/JavaScript/doc#requirements)
-3. [Getting Started](https://docs.ermis.network/JavaScript/doc#getting-started)
-4. [Features](https://docs.ermis.network/JavaScript/doc#features)
-5. [Error codes](https://docs.ermis.network/JavaScript/doc#error-codes)
+1. [Introduction](#introduction)
+2. [Requirements](#requirements)
+3. [Getting Started](#getting-started)
+4. [Features](#features)
+5. [Error codes](#error-codes)
 
 ## Introduction
 
-The ErmisChat SDK for JavaScript allows you to integrate real-time chat into your client app with minimal effort.
+The ErmisChat SDK for Unity allows you to integrate real-time chat into your client app with minimal effort.
 
-## [](https://docs.ermis.network/JavaScript/doc#requirements)Requirements
+## Requirements
 
 This section shows you the prerequisites needed to use the ErmisChat SDK for Unity. If you have any comments or questions regarding bugs and feature requests, please reach out to us.
 
-## [](https://docs.ermis.network/JavaScript/doc#supported-browsers)Supported browsers
+## Supported browsers
 
 | Browser           | Supported versions     |
 | ----------------- | ---------------------- |
@@ -27,39 +28,31 @@ This section shows you the prerequisites needed to use the ErmisChat SDK for Uni
 | iOS Safari        | 7 or higher            |
 | Android Browser   | 4.4 (Kitkat) or higher |
 
-## [](https://docs.ermis.network/JavaScript/doc#getting-started)Getting started
+## Getting started
 
 The ErmisChat client is designed to allow extension of the base types through use of generics when instantiated. By default, all generics are set to `Record<string, unknown>`.
 
-## [](https://docs.ermis.network/JavaScript/doc#step-by-step-guide)Step-by-Step Guide:
+### 1. Step-by-Step Guide
 
-### [](https://docs.ermis.network/JavaScript/doc#step-1-generate-api-key-and-projectid)Step 1: Generate API key and ProjectID
+#### Step 1: Generate API key and ProjectID
 
 Before installing ErmisChat SDK, you need to generate an **API key** and **ProjectID** on the [Ermis Dashboard](https://ermis.network/). This **API key** and **ProjectID** will be required when initializing the Chat SDK.
 
 > **Note**: Ermis Dashboard will be available soon. Please contact our support team to create a client account and receive your API key. Contact support: [tony@ermis.network](mailto:tony@ermis.network)
 
-### [](https://docs.ermis.network/JavaScript/doc#step-2-install-chat-sdk)Step 2: Install Chat SDK[]
+#### Step 2: Install Chat SDK
 
-You can install the Chat SDK with newest package here: 
+You can install the Chat SDK with the newest package here: 
 
-### Step 3: Demo
+#### Step 3: Demo
 
-Open scene ChatDemo from Plugins\ErmisChat\SampleProject\Scenes. Run Scene:
+Open scene ChatDemo from Plugins\ErmisChat\SampleProject\Scenes. Run Scene
 
-<img src="C:\Users\plkho\AppData\Roaming\Typora\typora-user-images\image-20241210032214978.png" alt="image-20241210032214978" style="zoom:50%;" />
-
-
-
-
-
-### Step 4: Integrate Login via Wallet
+#### Step 4: Integrate Login via Wallet
 
 You need to import `ErmisAuth` from Ermis to connect to the login flow in Ermis Chat:
 
-Step 4: Integrate Login via Wallet
-
-> [](https://docs.ermis.network/JavaScript/doc#4-2-sign-wallet-and-get-token)4.2 Sign wallet and Get Token
+> Sign wallet and Get Token
 
 Retrieve the token:
 
@@ -84,7 +77,7 @@ Retrieve the token:
 }
 ```
 
-### [](https://docs.ermis.network/JavaScript/doc#step-5-initialize-the-chat-sdk)Step 5: Initialize the Chat SDk
+#### Step 5: Initialize the Chat SDk
 
 On the client-side, initialize the Chat client with your **API key** and **ProjectID**.
 
@@ -110,7 +103,7 @@ Once initialized, you must specify the current user with `connectUser`. We provi
 | `_projectId` | string | Yes      | ProjectId on Ermis Dashboard                                 |
 | token        | string | Yes      | Authentication token obtained from the `GetTokenAsync` function |
 
-### [](https://docs.ermis.network/JavaScript/doc#1-sign-method-via-wallet)2. Sending your first message
+### 2. Sending your first message
 
 Now that the Chat SDK has been imported, you’re ready to start sending messages. Here are the steps to send your first message using the Chat SDK:
 
@@ -127,18 +120,18 @@ Now that the Chat SDK has been imported, you’re ready to start sending message
 ermisChannel.SendNewMessageAsync(sendMessageRequestt);
 ```
 
-## [](https://docs.ermis.network/JavaScript/doc#features)Features
+## Features
 
-1. [User management](https://docs.ermis.network/JavaScript/doc#user-management)
-2. [Channel management](https://docs.ermis.network/JavaScript/doc#channel-management)
-3. [Message management](https://docs.ermis.network/JavaScript/doc#message-management)
-4. [Events](https://docs.ermis.network/JavaScript/doc#events)
+1. [User management](#user-management)
+2. [Channel management](#channel-management)
+3. [Message management](#message-management)
+4. [Events](#events)
 
-### [](https://docs.ermis.network/JavaScript/doc#user-management)User management
+### User management
 
 Get the users in your project to create a direct message.
 
-#### [](https://docs.ermis.network/JavaScript/doc#1-query-users)1. Query users
+#### Query users
 
 
 
@@ -177,9 +170,9 @@ Get the users in your project to create a direct message.
 }
 ```
 
-### [](https://docs.ermis.network/JavaScript/doc#channel-management)Channel management
+### Channel management
 
-#### [](https://docs.ermis.network/JavaScript/doc#1-query-channels)1. Query channels
+#### 1. Query channels
 
 Here’s an example of how to query the list of channels:
 
@@ -246,7 +239,7 @@ const sort = [{ last_message_at: -1 }];
 const options = { message_limit: 25 };
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#2-create-a-new-channel)2. Create a New Channel
+#### 2. Create a New Channel
 
 To create a channel: choose Direct for 1-1 (messaging) or Channel (team) for multiple users.
 
@@ -280,7 +273,7 @@ Client.CreateChannelWithIdAsync(ChannelType.Team, channelId: Guid.NewGuid().ToSt
 
 > **Note**: The channel is created, allowing only the creator’s friends to be added, maintaining security and connection.
 
-#### [](https://docs.ermis.network/JavaScript/doc#3-accept-reject-invite)3. Accept/Reject Invite
+#### 3. Accept/Reject Invite
 
 **Accept the invitation**
 
@@ -302,13 +295,11 @@ await ermisChannel.AcceptInviteAsync();
 await ermisChannel.RejectInviteAsync()
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#5-setting-a-channel)4. Setting a channel
+#### 4. Setting a channel
 
 The channel settings feature allows users to customize channel attributes such as name, description, membership permissions, and notification settings to suit their communication needs.
 
-**5.1. Edit channel information (name, avatar, description)**
-
-
+**4.1. Edit channel information (name, avatar, description)**
 
 ```javascript
 await Client.UpdateChannelAsync(channelType,channelId, new UpdateChannelRequest());
@@ -320,7 +311,8 @@ await Client.UpdateChannelAsync(channelType,channelId, new UpdateChannelRequest(
 | image       | string | No       | Avatar for the channel       |
 | description | string | No       | Description for the channel  |
 
-**5.2. Adding, Removing Channel Members** The addMembers() method adds specified users as members, while removeMembers() removes them.
+**4.2. Adding, Removing Channel Members** 
+The addMembers() method adds specified users as members, while removeMembers() removes them.
 
 **Adding members** List user id you want to adding
 
@@ -338,7 +330,8 @@ await ermisChannel.AddMembersAsync(users);
 await ermisChannel.RemoveMembersAsync(users);
 ```
 
-**5.3. Adding & Removing Moderators to a Channel** The addModerators() method adds a specified user as a Moderators (or updates their role to moderator if already members), while demoteModerators() removes the moderator status.
+**4.3. Adding & Removing Moderators to a Channel** 
+The addModerators() method adds a specified user as a Moderators (or updates their role to moderator if already members), while demoteModerators() removes the moderator status.
 
 **Adding Moderator** List user id you want to adding
 
@@ -356,9 +349,11 @@ await ermisChannel.PromoteMembersAsync(users);
 await ermisChannel.DemoteMembersAsync(users);
 ```
 
-**5.4. Ban & Unban Channel Members** The ban and unban feature allows administrators to block or unblock members with the “member” role in a channel, managing their access rights.
+**4.4. Ban & Unban Channel Members** 
+The ban and unban feature allows administrators to block or unblock members with the “member” role in a channel, managing their access rights.
 
-**Ban a Channel Member** List user id you want to ban
+**Ban a Channel Member** 
+List user id you want to ban
 
 
 
@@ -366,7 +361,8 @@ await ermisChannel.DemoteMembersAsync(users);
 await ermisChannel.BanMembersAsync(users);
 ```
 
-**Unban a Channel Member** List user id you want to unban
+**Unban a Channel Member** 
+List user id you want to unban
 
 
 
@@ -374,7 +370,8 @@ await ermisChannel.BanMembersAsync(users);
 await ermisChannel.UnBanMembersAsync(users);
 ```
 
-**5.5. Channel Capabilities** This feature allows `owner` role to configure permissions for members with the `member` role, enabling a capability adds it to the capabilities, disabling it removes it from the capabilities.
+**4.5. Channel Capabilities** 
+This feature allows `owner` role to configure permissions for members with the `member` role, enabling a capability adds it to the capabilities, disabling it removes it from the capabilities.
 
 
 
@@ -386,7 +383,8 @@ await ermisChannel.UpdateChannelCapabilitiesAsync(new UpdateChannelCapabilitiesR
 | ------------ | ----- | -------- | ------------------------------------------------------------ |
 | capabilities | array | Yes      | Capabilities you want to adding to the member in channel. Enabling a capability adds it to the array, disabling it removes it from the array |
 
-**Name Capabilities** These are the permissions applied to members within a channel.
+**Name Capabilities** 
+These are the permissions applied to members within a channel.
 
 | Name                  | What it indicates                               |
 | --------------------- | ----------------------------------------------- |
@@ -404,7 +402,8 @@ await ermisChannel.UpdateChannelCapabilitiesAsync(new UpdateChannelCapabilitiesR
 | `upload-file`         | Ability to upload file in the channel           |
 | `delete-own-reaction` | Ability to delete reaction in the channel       |
 
-**5.6. Query Attachments in a channel** This feature allows users to view all media files shared in a channel, including images, videos, and audio.
+**4.6. Query Attachments in a channel** 
+This feature allows users to view all media files shared in a channel, including images, videos, and audio.
 
 
 
@@ -438,11 +437,13 @@ await ermisChannel.GetAttachmentAsync();
 }
 ```
 
-**5.7. Block & Unblock a Direct channel** Allows users to block any user in their DM list. Users can unblock at any time while retaining the previous conversation history.
+**4.7. Block & Unblock a Direct channel** 
+Allows users to block any user in their DM list. Users can unblock at any time while retaining the previous conversation history.
 
 > **Note**: Only allows /unblock for direct channels with type `messaging`, not applicable for group channels with type `team`
 
-**Block a Direct channel** The block direct channel feature prevents users from sending messages, triggering the `member.blocked` event via WebSocket
+**Block a Direct channel** 
+The block direct channel feature prevents users from sending messages, triggering the `member.blocked` event via WebSocket
 
 
 
@@ -454,7 +455,8 @@ await ermisChannel.GetAttachmentAsync();
 await ermisChannel.BlockOrUnBlockAsync(blockUnBlockChannelRequest);
 ```
 
-**Unblock a Direct channel** The unblock direct channel feature allows users to resume messaging, triggering the `member.unblocked` event via WebSocket.
+**Unblock a Direct channel** 
+The unblock direct channel feature allows users to resume messaging, triggering the `member.unblocked` event via WebSocket.
 
 
 
@@ -466,7 +468,7 @@ await ermisChannel.BlockOrUnBlockAsync(blockUnBlockChannelRequest);
 await ermisChannel.BlockOrUnBlockAsync(blockUnBlockChannelRequest);
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#6-search-public-channel)6. Search public channel
+#### 5. Search public channel
 
 The public channel search feature allows users to find public channels, making it easy to connect and join open communities
 
@@ -513,9 +515,9 @@ await Client.SearchPublicChannelAsync(new SearchPublicChannelRequest())
 }
 ```
 
-### [](https://docs.ermis.network/JavaScript/doc#message-management)Message management
+### Message management
 
-#### [](https://docs.ermis.network/JavaScript/doc#1-sending-a-message)1. Sending a message
+#### 1. Sending a message
 
 This feature allows user to send a message to a specified channel or DM:
 
@@ -552,7 +554,8 @@ ermisChannel.SendNewMessageAsync(sendMessageRequestt);
 }
 ```
 
-**1.2 Send attachments message** Before sending messages with images, videos, or file attachments, users need to [upload the files](https://docs.ermis.network/JavaScript/doc#2-upload-file) to the system for sending.
+**1.2 Send attachments message** 
+Before sending messages with images, videos, or file attachments, users need to [upload the files](#2-upload-file) to the system for sending.
 
 
 
@@ -654,7 +657,8 @@ const attachments = [
 ];
 ```
 
-**Get thumb blob from video** Extract a thumbnail from a video file, converting it to a Blob if the uploaded file is a video. After upload file
+**Get thumb blob from video** 
+Extract a thumbnail from a video file, converting it to a Blob if the uploaded file is a video. After upload file
 
 
 
@@ -662,7 +666,8 @@ const attachments = [
 await channel.getThumbBlobVideo(file);
 ```
 
-**1.3 Reply a message** The reply feature allows users to directly respond to a specific message, displaying the original message content alongside the reply.
+**1.3 Reply a message** 
+The reply feature allows users to directly respond to a specific message, displaying the original message content alongside the reply.
 
 
 
@@ -707,7 +712,8 @@ ermisChannel.SendNewMessageAsync(sendMessageRequestt);
 }
 ```
 
-**1.4 Send message with mentions** Allows users to mention others by typing `@`, displaying the selected name and ID.
+**1.4 Send message with mentions** 
+Allows users to mention others by typing `@`, displaying the selected name and ID.
 
 > **Note**: Only allows send message with mentions for group channels with type `team`, not applicable for direct channels with type `messaging`
 
@@ -765,7 +771,7 @@ ermisChannel.SendNewMessageAsync(sendMessageRequestt);
 }
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#2-upload-file)2. Upload file
+#### 2. Upload files
 
 This feature allows user to upload a file to the system. Maximum file size is 2GB
 
@@ -786,7 +792,7 @@ await ermisChannel.UploadFileAsync(fileContent, "attachment-1");
 }
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#3-edit-message)3. Edit message
+#### 3. Edit message
 
 The edit message feature enables users to modify and update the content of a previously sent message in a chat
 
@@ -821,7 +827,7 @@ await ermisMessage .UpdateAsync(message_id, text);
 }
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#4-delete-message)4. Delete message
+#### 4. Delete message
 
 The delete message feature allows users to remove a previously sent message from the chat for all participants
 
@@ -851,7 +857,7 @@ ermisMessage.SoftDeleteAsync()
 }
 ```
 
-#### [](https://docs.ermis.network/JavaScript/doc#7-reactions)7. Reactions
+#### 5. Reactions
 
 The Reaction feature allows users to send, manage reactions on messages, and delete reactions when necessary.
 
@@ -886,7 +892,7 @@ const EMOJI_QUICK = [
 ];
 ```
 
-**7.1. Send a reaction:**
+**5.1. Send a reaction**
 
 
 
@@ -944,7 +950,7 @@ ermisMessage.SendReactionAsync(reaction_type);
 }
 ```
 
-**7.2. Delete a reaction:**
+**5.2. Delete a reaction**
 
 
 
@@ -957,4 +963,200 @@ ermisMessage.DeleteReactionAsync(reaction_type);
 | reaction_type | string | Yes      | ID of the message to react to |
 |               |        |          |                               |
 
-#### 
+#### 8. Typing Indicators
+
+Typing indicators feature lets users see who is currently typing in the channel
+
+
+
+```javascript
+// sends a typing.start event at most once every two seconds
+await channel.SendTypingStartedEventAsync();
+
+// sends the typing.stop event
+await channel.SendTypingStoppedEventAsync();
+```
+
+When sending events on user input, you should make sure to follow some best-practices to avoid bugs.
+
+- Only send `typing.start` when the user starts typing
+- Send `typing.stop` after a few seconds since the last keystroke
+
+**Receiving typing indicator events**
+
+
+
+```javascript
+// start typing event handling
+ channel.UserStartedTyping += OnUserStartedTyping;
+// stop typing event handling
+ channel.UserStoppedTyping += OnUserStoppedTyping;
+```
+
+#### [](https://docs.ermis.network/JavaScript/doc#9-system-message)9. System message
+
+Below you can find the complete list of system message that are returned by messages from channel. You can define from syntax message by description.
+
+| Name                            | Syntax                   | Description                                        |
+| ------------------------------- | ------------------------ | -------------------------------------------------- |
+| UpdateChannelName               | `1 user_id channel_name` | Member X updated name of channel                   |
+| UpdateChannelImage              | `2 user_id`              | Member X updated image of channel                  |
+| UpdateChannelDescription        | `3 user_id`              | Member X updated description of channel            |
+| MemberRemoved                   | `4 user_id`              | Member X has been removed from this channel        |
+| MemberBanned                    | `5 user_id`              | Member X has been banned from interacting          |
+| MemberUnbanned                  | `6 user_id`              | Member X has been unbanned from interacting        |
+| MemberPromoted                  | `7 user_id`              | Member X has been assigned as the moderator        |
+| MemberDemoted                   | `8 user_id`              | Member X has been demoted to member                |
+| UpdateChannelMemberCapabilities | `9 user_id`              | Member X has updated member permission of channel  |
+| InviteAccepted                  | `10 user_id`             | Member X has joined this channel                   |
+| InviteRejected                  | `11 user_id`             | Member X has rejected to join this channel         |
+| MemberLeave                     | `12 user_id`             | Member X has leaved this channel                   |
+| TruncateMessages                | `13 user_id`             | Member X has truncate all messages of this channel |
+| UpdateMemberMessageCooldown     | `15 user_id duration`    | Member X has update channel message cooldown       |
+| UpdateFilterWords               | `16 user_id`             | Member X has update channel filter words           |
+
+### [](https://docs.ermis.network/JavaScript/doc#events)Events
+
+Events keep the client updated with changes in a channel, such as new messages, reactions, or members joining the channel. A full list of events is shown below. The next section of the documentation explains how to listen for these events.
+
+| Event                           | Trigger                                                      | Recipients                                                   |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `health.check`                  | every 30 second to confirm that the client connection is still alive | all clients                                                  |
+| `message.new`                   | when a new message is added on a channel                     | clients watching the channel                                 |
+| `message.read`                  | when a channel is marked as read                             | clients watching the channel                                 |
+| `message.deleted`               | when a message is deleted                                    | clients watching the channel                                 |
+| `message.updated`               | when a message is updated                                    | clients watching the channel                                 |
+| `typing.start`                  | when a user starts typing                                    | clients watching the channel                                 |
+| `typing.stop`                   | when a user stops typing                                     | clients watching the channel                                 |
+| `reaction.new`                  | when a message reaction is added                             | clients watching the channel                                 |
+| `reaction.deleted`              | when a message reaction is deleted                           | clients watching the channel                                 |
+| `member.added`                  | when a member is added to a channel                          | clients watching the channel                                 |
+| `member.removed`                | when a member is removed from a channel                      | clients watching the channel                                 |
+| `member.promoted`               | when a member is added moderator to a channel                | clients watching the channel                                 |
+| `member.demoted`                | when a member is removed moderator to a channel              | clients watching the channel                                 |
+| `member.banned`                 | when a member is ban to a channel                            | clients watching the channel                                 |
+| `member.unbanned`               | when a member is unban to a channel                          | clients watching the channel                                 |
+| `member.blocked`                | when a direct channel is blocked                             | clients watching the channel                                 |
+| `member.unblocked`              | when a direct channel is unblocked                           | clients watching the channel                                 |
+| `notification.added_to_channel` | when the user is added to the list of channel members        | clients from the user added that are not watching the channel |
+| `notification.invite_accepted`  | when the user accepts an invite                              | clients from the user invited that are not watching the channel |
+| `notification.invite_rejected`  | when the user rejects an invite                              | clients from the user invited that are not watching the channel |
+| `channel.deleted`               | when a channel is deleted                                    | clients watching the channel                                 |
+| `channel.updated`               | when a channel is updated                                    | clients watching the channel                                 |
+
+#### [](https://docs.ermis.network/JavaScript/doc#1-listening-for-events)1. Listening for Events
+
+As soon as you call `watch` on a Channel or `queryChannels` you’ll start to listen to these events. You can hook into specific events::
+
+
+
+```javascript
+// Get a single channel
+var channel = await Client.GetOrCreateChannelWithIdAsync(ChannelType.Messaging, "my-channel-id");
+
+// Or multiple with optional filters
+var channels = await Client.QueryChannelsAsync(new List<IFieldFilterRule>()
+{
+  ChannelFilter.Members.In(Client.LocalUserData.User)
+});
+
+// Subscribe to events
+channel.MessageReceived += OnMessageReceived;
+channel.MessageUpdated += OnMessageUpdated;
+channel.MessageDeleted += OnMessageDeleted;
+
+channel.ReactionAdded += OnReactionAdded;
+channel.ReactionUpdated += OnReactionUpdated;
+channel.ReactionRemoved += OnReactionRemoved;
+
+channel.MemberAdded += OnMemberAdded;
+channel.MemberRemoved += OnMemberRemoved;
+channel.MemberUpdated += OnMemberUpdated;
+
+channel.MembersChanged += OnMembersChanged;
+channel.VisibilityChanged += OnVisibilityChanged;
+channel.MuteChanged += OnMuteChanged;
+channel.Truncated += OnTruncated;
+channel.Updated += OnUpdated;
+channel.WatcherAdded += OnWatcherAdded;
+channel.WatcherRemoved += OnWatcherRemoved;
+channel.UserStartedTyping += OnUserStartedTyping;
+channel.UserStoppedTyping += OnUserStoppedTyping;
+channel.TypingUsersChanged += OnTypingUsersChanged;
+
+```
+
+You can also listen to all events at once:
+
+#### [](https://docs.ermis.network/JavaScript/doc#2-client-events)2. Client Events
+
+Not all events are specific to channels. Events such as the user’s status has changed, the users’ unread count has changed, and other notifications are sent as client events. These events can be listened to through the client directly:
+
+
+
+```javascript
+public void SubscribeToClientEvents()
+{
+  Client.AddedToChannelAsMember += OnAddedToChannelAsMember;
+  Client.RemovedFromChannelAsMember += OnRemovedFromChannel;
+}
+
+private void OnAddedToChannelAsMember(IStreamChannel channel, IStreamChannelMember member)
+{
+  // channel - new channel to which local user was just added
+  // member - object containing channel membership information
+}
+
+private void OnRemovedFromChannel(IStreamChannel channel, IStreamChannelMember member)
+{
+  // channel - channel from which local user was removed
+  // member - object containing channel membership information
+}
+
+```
+
+#### [](https://docs.ermis.network/JavaScript/doc#3-stop-listening-for-events)3. Stop listening for Events
+
+It is a good practice to unregister event handlers once they are not in use anymore. Doing so will save you from performance degradations coming from memory leaks or even from errors and exceptions (i.e. null pointer exceptions)
+
+
+
+```javascript
+Client.Connected -= OnConnected;
+Client.Disconnected -= OnDisconnected;
+Client.ConnectionStateChanged -= OnConnectionStateChanged;
+```
+
+## [](https://docs.ermis.network/JavaScript/doc#error-codes)Error codes
+
+Below you can find the complete list of errors that are returned by the API together with the description, API code, and corresponding HTTP, Websocket status of each error.
+
+#### [](https://docs.ermis.network/JavaScript/doc#1-http-codes)1. HTTP codes
+
+| Name                      | HTTP Status Code | HTTP Status           | Ermis code | Description                                               |
+| ------------------------- | ---------------- | --------------------- | ---------- | --------------------------------------------------------- |
+| InternalServerError       | 500              | Internal Server Error | 0          | Triggered when something goes wrong in our system         |
+| ServiceUnavailable        | 503              | Service Unavailable   | 1          | Triggered when our system is unavailable to call          |
+| Unauthorized              | 401              | Unauthorized          | 2          | Invalid JWT token                                         |
+| NotFound                  | 404              | Not Found             | 3          | Resource not found                                        |
+| InputError                | 400              | Bad Request           | 4          | When wrong data/parameter is sent to the API              |
+| ChannelNotFound           | 400              | Bad Request           | 5          | Channel is not existed                                    |
+| NoPermissionInChannel     | 400              | Bad Request           | 6          | No permission for this action in the channel              |
+| NotAMemberOfChannel       | 400              | Bad Request           | 7          | Not a member of channel                                   |
+| BannedFromChannel         | 400              | Bad Request           | 8          | User is banned from this channel                          |
+| HaveToAcceptInviteFirst   | 400              | Bad Request           | 9          | User must accept the invite to gain permission            |
+| DisabledChannelMemberCapa | 400              | Bad Request           | 10         | This action is disable for channel member role            |
+| AlreadyAMemberOfChannel   | 400              | Bad Request           | 11         | User is already part of the channel and cannot join again |
+
+#### [](https://docs.ermis.network/JavaScript/doc#2-websocket-codes)2. Websocket codes
+
+| Websocket Code | Message          | Description                                   |
+| -------------- | ---------------- | --------------------------------------------- |
+| 1011           | Internal Error   | Return when something wrong in our system     |
+| 1006           | Abnormal Closure | Return when there is connection error         |
+| 1005           | Jwt Expire       | Return when jwt is expired                    |
+| 1003           | Unsupported Data | Return when client send non text data         |
+| 1000           | Normal Closure   | Return when client or server close connection |
+
+[
+  ](https://docs.ermis.network/ios/doc)
